@@ -421,7 +421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">2.2.3</span> How do we set the working directory in our computer by connecting our folder to RStudio with the <code>setwd()</code> function?<a href="introduction-to-rstudio-and-geoprocessing.html#how-do-we-set-the-working-directory-in-our-computer-by-connecting-our-folder-to-rstudio-with-the-setwd-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Now, we are getting very serious here!</strong></p>
 <div class="note">
-<p><strong>Important action:</strong> Before we do anything - make sure to have downloaded the data set for Day 1 if you haven’t done so by <a href=""><strong>clicking here</strong></a>. In your computer, create a new folder on your desktop page and rename the folder to <strong>“Workshop”</strong>, and create another folder within the <strong>“Workshop”</strong> folder rename it as <strong>“Day 1”</strong>. Make sure to unzip and transfer <strong>ALL</strong> the downloaded data directly to the <strong>Day 1</strong> folder.</p>
+<p><strong>Important action:</strong> Before we do anything - make sure to have downloaded the data set for Day 1 if you haven’t done so by <a href="https://github.com/UCLPG-MSC-SGDS/UCL-UoG-Workshop/raw/main/Day%201.zip"><strong>clicking here</strong></a>. In your computer, create a new folder on your desktop page and rename the folder to <strong>“Workshop”</strong>, and create another folder within the <strong>“Workshop”</strong> folder rename it as <strong>“Day 1”</strong>. Make sure to unzip and transfer <strong>ALL</strong> the downloaded data directly to the <strong>Day 1</strong> folder.</p>
 </div>
 <p>Now, this part of the session is probably the most important section of this tutorials. It’s usually the <strong>“make”</strong> or <strong>“break”</strong> phase (i.e., you ending up loving RStudio OR you hating it and not ever wanting to pick up R again).</p>
 <p>We are going to learn how to set-up a working directory. This basically refers to us connecting the RStudio software to the folder containing our dataset. It allows the user to tell RStudio to open the data directly from a folder once it knows the <strong>path location</strong>.</p>
@@ -431,10 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol style="list-style-type: decimal">
 <li>Open the <strong>Workshop</strong> folder to reveal the <strong>Day 1</strong> folder.</li>
 <li>Open the <strong>Day 1</strong> folder in the data files are stored.</li>
-<li>Now, click on the bar at the top which shows <code>Workshop &gt; Day 1</code>. This should highlight and show <code>"C:\Users\accountName\Desktop\Workshop\Day 1"</code> (see image below):</li>
-</ol>
-<p><img src="images/general/6_path_window.png" width="100%" style="display: block; margin: auto;" /></p>
-<ol start="4" style="list-style-type: decimal">
+<li>Now, click on the bar at the top which shows <code>Workshop &gt; Day 1</code>. This should highlight and show <code>"C:\Users\accountName\Desktop\Workshop\Day 1"</code></li>
 <li>Now, copy <code>"C:\Users\accountName\Desktop\Workshop\Day 1"</code> and paste the path name into the <code>setwd()</code> function in your R script.</li>
 <li>Lastly, change all the back slashes <code>\</code> in the path name to forward slashes <code>/</code> and run the code. It should look like this: <code>setwd("C:/Users/accountName/Desktop/Workshop/Day 1")</code>.</li>
 </ol>
@@ -443,11 +440,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb13-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/accountName/Desktop/Workshop/Day 1&quot;</span>)</span></code></pre></div>
 <p>For <strong>MAC</strong> users, its marginally different. The path location would be written as follows, <code>"/Users/accountName/Desktop/Workshop/Day 1"</code>. You can access this piece of information simply by:</p>
 <ol style="list-style-type: decimal">
-<li>Right-clicking on the folder “Week 1” (not file) in which the files are stored.</li>
+<li>Right-clicking on the folder “Day 1” (not file) in which the files are stored.</li>
 <li>Hold the “Option” <code>⌥</code> key down</li>
-</ol>
-<p><img src="images/general/7_path_mac.png" width="100%" style="display: block; margin: auto;" /></p>
-<ol start="3" style="list-style-type: decimal">
 <li>Click <code>Copy "filename" as Pathname</code></li>
 <li>Paste the copied path name into the function <code>setwd()</code> and run the code</li>
 </ol>
@@ -462,8 +456,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">2.2.4.1</span> Importing data using <code>read.csv()</code><a href="introduction-to-rstudio-and-geoprocessing.html#importing-data-using-read.csv" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>As you will be working mostly with comma separated value formatted data (i.e., csv) we will therefore learn how to import and export this type of data format in RStudio. There are two files that we are going to import into RStudio from the folder in <code>Day 1</code>:</p>
 <ol style="list-style-type: decimal">
-<li><code>Ghana_Highrisk_Flood_Surface_Area.csv</code> which contains information on the estimated land surface area (<span class="math inline">\(m^2\)</span>) in districts defined to be at high risk of flooding in Ghana in 2021.</li>
-<li><code>Ghana_Total_Land_Surface_Area.csv</code> which contains information on the total land surface area (<span class="math inline">\(m^2\)</span>) in a district in Ghana.</li>
+<li><code>Ghana_Highrisk_Flood_Surface_Area.csv</code> which contains information on the estimated land surface area in districts defined to be at high risk of flooding in Ghana in 2021. The column <code>NAME_2</code> represents the names of each district in Ghana. The column <code>FLOOD_PRONE</code> is the estimated surface area (pixel per 100m) affected by floods in each Ghanaian district.</li>
+<li><code>Ghana_Total_Land_Surface_Area.csv</code> which contains information on the total land surface area in a district in Ghana. Note that the column <code>NAME_2</code> represents the names of each district in Ghana, while <code>SURFACE_AREA</code> is the total surface area for the each district (pixel per 100m).</li>
 </ol>
 <p>To import a csv into RStudio, we use the <code>read.csv()</code> function. To demonstrate this, let us import the high risk flood information into an data frame object and name it as <code>Floodrisk_data</code></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb15-1" tabindex="-1"></a><span class="co"># Import data using read.csv() function </span></span>
@@ -487,47 +481,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="joining-two-datasets-by-merger-using-the-merge-function" class="section level4 hasAnchor" number="2.2.4.2">
 <h4><span class="header-section-number">2.2.4.2</span> Joining two datasets by merger using the <code>merge()</code> function<a href="introduction-to-rstudio-and-geoprocessing.html#joining-two-datasets-by-merger-using-the-merge-function" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>You will often find yourself merging two or more data frames together, especially bringing together a spatial object with a non-spatial object. We cannot stress the importance of merging objects in the correct order so that the spatial attributes are preserved.</p>
-<p>In this instance, we are just dealing with two ordinary dataset which are non-spatial - i.e., one data set contains information on Fires that occurred in geographic units in London know as Lower Super Output Areas (LSOA), while the other contains its corresponding information for socioeconomic indicators that describe the LSOA. Hence, it is possible to merge the two data frames uniquely using a common key variable like <code>LSOA_code</code>.</p>
+<p>You will often find yourself merging two or more data frames together, especially bringing together a spatial object with a non-spatial object. We cannot stress the importance of merging objects in the correct order so that the spatial attributes are aligned and preserved.</p>
+<p>In this instance, we are just dealing with two ordinary dataset which are non-spatial - i.e., one data set contains information on flood prone areas for geographic units in Ghana (i.e., districts), while the other contains its corresponding information for its total surface. Hence, it is possible to merge the two data frames uniquely using a common key variable like <code>NAME_2</code>.</p>
 <p><img src="images/general/8_dataviewer.png" width="100%" style="display: block; margin: auto;" /></p>
-<p>This task can be done using the merge function <code>merge()</code>. Consequently, we want the format of the merge code to look something akin to this syntax <code>merge(target_object, selected_object, by=”LSOA”)</code>.</p>
-<p>Merging data frames is indeed a very important technique to know especially if you need to bring together event information with no spatial dimension with actual spatial data. Alright, let’s merge the deprivation data on the fire records using the <code>LSOA_code</code> column, and generate a bigger data frame that contains both the fire and socioeconomic information:</p>
+<p>This task can be done using the merge function <code>merge()</code>. Consequently, we want the format of the merge code to look something akin to this syntax <code>merge(target_object, selected_object, by=”COMMON_COLUMN”)</code>.</p>
+<p>Merging data frames is indeed a very important technique to know especially if you need to bring together event information with no spatial dimension with actual spatial data. Alright, let’s merge the total surface area data to the flood prone records using the <code>NAME_2</code> column, and generate a bigger data frame that contains both these information:</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb19-1" tabindex="-1"></a><span class="co"># Using the merge() function </span></span>
-<span id="cb19-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb19-2" tabindex="-1"></a>Full_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(Floodrisk_data, landsurface_data, <span class="at">by.x =</span> “LSOA_code”, <span class="at">by.y =</span> “LSOA_code”, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb19-2" tabindex="-1"></a>Full_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(Floodrisk_data, landsurface_data, <span class="at">by.x =</span> “NAME_2”, <span class="at">by.y =</span> “NAME_2”, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb19-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb19-3" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb19-4" tabindex="-1"></a><span class="co"># View the datasets</span></span>
 <span id="cb19-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb19-5" tabindex="-1"></a><span class="fu">View</span>(Full_data)</span></code></pre></div>
 <div class="note">
 <p><strong>Important Notes:</strong> The arguments used in <code>merge.csv()</code>:</p>
 <ol style="list-style-type: decimal">
-<li><code>Fire_data</code> is the target data frame we want something to be merged on to.</li>
-<li><code>Deprivation_data</code> is the selected data frame we are using to merge with the <code>Fire_data</code>.</li>
-<li><code>by.x = “LSOA_code”</code> option we are specifying the name of the join column from the target data frame i.e., <code>Fire_data</code>.</li>
-<li><code>by.y = “LSOA_code”</code> option we are specifying the name of the join column from the selected data frame i.e., <code>Deprivation_data</code></li>
-<li><code>all.x=TRUE</code> option we are telling RStudio to retain all rows that are originally from the target data after merging regardless of whether or not they are present in the selected data frame. So even if a row from the selected data does not find a unique link with any of the rows in target data to match too - it will still preserve the target data frame by not discarding unlinked rows. But it will discard the unmatched rows from the selected data frame.</li>
+<li><code>Floodrisk_data</code> is the target data frame we want something to be merged on to.</li>
+<li><code>landsurface_data</code> is the selected data frame we are using to merge with the <code>Fire_data</code>.</li>
+<li><code>by.x = “NAME_2”</code> option we are specifying the name of the join column from the target data frame i.e., <code>Floodrisk_data</code>.</li>
+<li><code>by.y = “NAME_2”</code> option we are specifying the name of the join column from the selected data frame i.e., <code>landsurface_data</code></li>
+<li><code>all.x=TRUE</code> option we are telling RStudio to retain all rows that are originally from the target data after merging regardless of whether or not they are present in the selected data frame. So even if a row from the selected data does not find a unique link with any of the rows in the target data to match too - it will still preserve the target data frame by not discarding unlinked rows. But it will discard the unmatched rows from the selected data frame.</li>
 </ol>
 </div>
+<p>We now have the necessary information together. Let’s quickly calculate the proportion of land surface affected by floods across the districts and save the results in a new file.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb20-1" tabindex="-1"></a><span class="co"># calculate the proportion of land surface area affected by floods</span></span>
+<span id="cb20-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb20-2" tabindex="-1"></a>Full_data<span class="sc">$</span>FLOOD_PRONE_PREV <span class="ot">&lt;-</span> (Full_data<span class="sc">$</span>FLOOD_PRONE<span class="sc">/</span>Full_data<span class="sc">$</span>SURFACE_AREA)</span></code></pre></div>
 </div>
 <div id="saving-your-dataset-using-the-write.csv-function" class="section level4 hasAnchor" number="2.2.4.3">
 <h4><span class="header-section-number">2.2.4.3</span> Saving your dataset using the <code>write.csv()</code> function<a href="introduction-to-rstudio-and-geoprocessing.html#saving-your-dataset-using-the-write.csv-function" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Let us save a version of this as a <code>.csv</code> file as a saved product named <code>“London_Fire_and_Deprivation_2019.csv”</code>. This can be done by using the <code>write.csv()</code> function. It will export the data frame object into a <code>.csv</code> format.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb20-1" tabindex="-1"></a><span class="co"># Export ‘Full_data’ object as .csv into &#39;Week 1&#39; folder</span></span>
-<span id="cb20-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb20-2" tabindex="-1"></a><span class="fu">write.csv</span>(Full_data, <span class="at">file =</span> <span class="st">&quot;London_Fire_and_Deprivation_2019.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>Let us save a version of this as a <code>.csv</code> file as a saved product named <code>“Ghana_Flood_TotalSurface_Data.csv”</code>. This can be done by using the <code>write.csv()</code> function. It will export the data frame object into a <code>.csv</code> format.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb21-1" tabindex="-1"></a><span class="co"># Export ‘Full_data’ object as .csv into &#39;Day 1&#39; folder</span></span>
+<span id="cb21-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb21-2" tabindex="-1"></a><span class="fu">write.csv</span>(Full_data, <span class="at">file =</span> <span class="st">&quot;Ghana_Flood_TotalSurface_Data.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div class="note">
 <p><strong>Important Notes:</strong> The arguments used in <code>merge.csv()</code>:</p>
 <ol style="list-style-type: decimal">
 <li><code>Full_data</code> is an object we are exporting. It is compulsory to specify the object data frame we want to export</li>
 <li><code>file =</code> is a mandatory argument. We must give a name to the file we wish to export it as with <code>.csv</code> extension.</li>
-<li><code>row.names =</code> this is an annoying argument! It will automatically index the dataset with unique row numbers by default if we do not specify <code>FALSE</code>! Since the data has its own unique identifiers (i.e., LSOA_code) we specify ‘FALSE’ to not perform this action of indexing</li>
+<li><code>row.names =</code> this is an annoying argument! It will automatically index the dataset with unique row numbers by default if we do not specify <code>FALSE</code>! Since the data has its own unique identifiers (i.e., <code>NAME_2</code>) we specify ‘FALSE’ to not perform this action of indexing</li>
 </ol>
 </div>
-<p>Again, suppose if you did <strong>NOT</strong> set the work directory to your folder, you will have to type the whole path location to where you want the data to be exported which could be a hassle:</p>
-<p>For Windows:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb21-1" tabindex="-1"></a><span class="fu">write.csv</span>(Full_data, <span class="at">file =</span> <span class="st">&quot;C:/Users/accountName/Desktop/GEOG0114/Week 1/London_Fire_and_Deprivation_2019.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>For Mac:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb22-1" tabindex="-1"></a><span class="fu">write.csv</span>(Full_data, <span class="at">file =</span> <span class="st">&quot;/Users/accountName/Desktop/GEOG0114/Week 1/London_Fire_and_Deprivation_2019.csv&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p>Again, I do not recommend doing it this way. Just set the work directory with <code>setwd()</code> to make life easier for yourself and to avoid R calling you out for errors.</p>
-<p>Now that we have learned a lot of the basic things in RStudio – the stuff shown in <strong>section 1.3</strong> will be used quite a lot in future tutorials. Let us progress to the <strong>section 1.4</strong> where will start using RStudio as a GIS software. Here, we will create our first map to display the spatial distribution of socioeconomic deprivation using the <code>Full_data</code> data frame object.</p>
+<p>The next section, we will create our first map to display the spatial distribution of proportion of land surface areas that are flood prone using the <code>Full_data</code> data frame object.</p>
 </div>
 </div>
 </div>
@@ -538,13 +529,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So far, we have been using functions and commands that are by default built-in RStudio. As you will become more and more proficient in RStudio, you will come to realise that there are several functions in RStudio that are in fact not built-in by default which will require external installation.</p>
 <p>For instance, the <strong>“sf”</strong> package which is called <strong>“Simply Features”</strong> allows the user to load shapefiles (a type of Vector spatial data) into RStudio’s memory. Another important package is called <strong>“tmap”</strong>, this package gives access to various functions that allows the user to write code and emulate RStudio as a GIS software. These are examples of packages with enables mapping of spatial data. They need to be installed as they not built-in programs in RStudio.</p>
 <p>For basic mapping, We will need to install following packages: <code>tmap</code> and <code>sf</code> using the <code>install.packages()</code>, and then activate the packages to make them active using the <code>library()</code> function.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb23-1" tabindex="-1"></a><span class="co"># install the two packages</span></span>
-<span id="cb23-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb23-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;sf&quot;</span>)</span>
-<span id="cb23-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb23-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tmap&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb22-1" tabindex="-1"></a><span class="co"># install the two packages</span></span>
+<span id="cb22-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb22-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;sf&quot;</span>)</span>
+<span id="cb22-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb22-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tmap&quot;</span>)</span></code></pre></div>
 <p>Once the installation is complete, you <strong>MUST</strong> activate the packages using the <code>library()</code> function. Type the following to perform this action:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb24-1" tabindex="-1"></a><span class="co"># Active the “sf” and “tmap” packages</span></span>
-<span id="cb24-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb24-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sf&quot;</span>)</span>
-<span id="cb24-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb24-3" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tmap&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb23-1" tabindex="-1"></a><span class="co"># Active the “sf” and “tmap” packages</span></span>
+<span id="cb23-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb23-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sf&quot;</span>)</span>
+<span id="cb23-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb23-3" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tmap&quot;</span>)</span></code></pre></div>
 </div>
 <div id="adding-shapefiles-in-rstudio" class="section level3 hasAnchor" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Adding shapefiles in RStudio<a href="introduction-to-rstudio-and-geoprocessing.html#adding-shapefiles-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -555,16 +546,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>Regions.shp</code> which contains the spatial boundaries for all 16 regions in Ghana.</li>
 </ol>
 <p>We can easily load them in RStudio as <strong>Spatial Polygon</strong> objects by using the <code>st_read()</code>, type into your script:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb25-1" tabindex="-1"></a><span class="co"># Add shapefiles for districts and regions</span></span>
-<span id="cb25-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb25-2" tabindex="-1"></a>districts <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;Districts.shp&quot;</span>)</span>
-<span id="cb25-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb25-3" tabindex="-1"></a>regions <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;Regions.shp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb24-1" tabindex="-1"></a><span class="co"># Add shapefiles for districts and regions</span></span>
+<span id="cb24-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb24-2" tabindex="-1"></a>districts <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;Districts.shp&quot;</span>)</span>
+<span id="cb24-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb24-3" tabindex="-1"></a>regions <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">&quot;Regions.shp&quot;</span>)</span></code></pre></div>
 <p>We interested in visualising the data at a district-level. We would need to merge the non-spatial (aka ordinary) data i.e., <code>Full_data</code>, uniquely in to the Spatial Polygon object we loaded in previously i.e., <code>districts</code> object, using the <code>NAME_2</code> column.</p>
-<p>Again, we can use the <code>merge()</code> function to perform this task the same way we carried out the joining of the two ordinary data frames in <strong>section 1.3.4.2</strong>. Consequently, we want the format of the merge code to look something akin to this syntax <code>merge(target_spatial_object, selected_non_spatial_object, by=”common_area_name”)</code>.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-1" tabindex="-1"></a><span class="co"># Using the merge() function </span></span>
-<span id="cb26-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-2" tabindex="-1"></a>Spatial_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(districts, Full_data, <span class="at">by.x =</span> “NAME_2”, <span class="at">by.y =</span> “NAME_2”, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb26-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-3" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-4" tabindex="-1"></a><span class="co"># View the datasets</span></span>
-<span id="cb26-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-5" tabindex="-1"></a><span class="fu">View</span>(Spatial_data)</span></code></pre></div>
+<p>Again, we can use the <code>merge()</code> function to perform this task the same way we carried out the joining of the two ordinary data frames in <strong>section 2.2.4</strong>. Consequently, we want the format of the merge code to look something akin to this syntax <code>merge(target_spatial_object, selected_non_spatial_object, by=”common_area_name”)</code>.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb25-1" tabindex="-1"></a><span class="co"># Using the merge() function </span></span>
+<span id="cb25-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb25-2" tabindex="-1"></a>Spatial_data <span class="ot">&lt;-</span> <span class="fu">merge</span>(districts, Full_data, <span class="at">by.x =</span> “NAME_2”, <span class="at">by.y =</span> “NAME_2”, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb25-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb25-3" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb25-4" tabindex="-1"></a><span class="co"># View the datasets</span></span>
+<span id="cb25-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb25-5" tabindex="-1"></a><span class="fu">View</span>(Spatial_data)</span></code></pre></div>
 </div>
 <div id="mapping-with-tmap-functions-in-rstudio" class="section level3 hasAnchor" number="2.3.3">
 <h3><span class="header-section-number">2.3.3</span> Mapping with ‘tmap’ functions in RStudio<a href="introduction-to-rstudio-and-geoprocessing.html#mapping-with-tmap-functions-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -610,59 +601,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="visualising-the-outlines-of-study-area" class="section level4 hasAnchor" number="2.3.3.1">
 <h4><span class="header-section-number">2.3.3.1</span> Visualising the outline(s) of study area<a href="introduction-to-rstudio-and-geoprocessing.html#visualising-the-outlines-of-study-area" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Suppose you want to visual just the outline of Ghana’s districts only:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-1" tabindex="-1"></a><span class="co"># Visual outline of London’s LSOA postcodes only</span></span>
-<span id="cb27-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-2" tabindex="-1"></a><span class="fu">tm_shape</span>(Spatial_data) <span class="sc">+</span> <span class="fu">tm_polygons</span>()</span>
-<span id="cb27-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-3" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-4" tabindex="-1"></a><span class="co"># Insert the “Spatial_data” object into the command line of </span></span>
-<span id="cb27-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-5" tabindex="-1"></a><span class="co"># tm_shape(). No customisation has been applied here.</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-1" tabindex="-1"></a><span class="co"># Visual outline of London’s LSOA postcodes only</span></span>
+<span id="cb26-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-2" tabindex="-1"></a><span class="fu">tm_shape</span>(Spatial_data) <span class="sc">+</span> <span class="fu">tm_polygons</span>()</span>
+<span id="cb26-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-3" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-4" tabindex="-1"></a><span class="co"># Insert the “Spatial_data” object into the command line of </span></span>
+<span id="cb26-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb26-5" tabindex="-1"></a><span class="co"># tm_shape(). No customisation has been applied here.</span></span></code></pre></div>
 <p><img src="images/general/9_outline.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>You can customise the level of transparency for both the area and borders by adding some arguments in the <code>tm_polygon()</code> [i.e., <code>alpha</code>, and <code>border.alpha</code> which only take values between 0 (full transparency) to 1 (100% solid)]. For example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-1" tabindex="-1"></a><span class="co"># Controlling transparencies for borders and areas</span></span>
-<span id="cb28-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-2" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-3" tabindex="-1"></a><span class="fu">tm_shape</span>(Spatial_data) <span class="sc">+</span> <span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">border.alpha =</span> <span class="fl">0.4</span>)</span>
-<span id="cb28-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-4" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-5" tabindex="-1"></a><span class="co"># Insert the “Spatial_data” object into the command line of </span></span>
-<span id="cb28-6"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-6" tabindex="-1"></a><span class="co"># tm_shape(), and in tm_polygon(), make the background (alpha) 10% solid</span></span>
-<span id="cb28-7"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-7" tabindex="-1"></a><span class="co"># and 40% for the borders (border.alpha)</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-1" tabindex="-1"></a><span class="co"># Controlling transparencies for borders and areas</span></span>
+<span id="cb27-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-3" tabindex="-1"></a><span class="fu">tm_shape</span>(Spatial_data) <span class="sc">+</span> <span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">border.alpha =</span> <span class="fl">0.4</span>)</span>
+<span id="cb27-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-4" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-5" tabindex="-1"></a><span class="co"># Insert the “Spatial_data” object into the command line of </span></span>
+<span id="cb27-6"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-6" tabindex="-1"></a><span class="co"># tm_shape(), and in tm_polygon(), make the background (alpha) 10% solid</span></span>
+<span id="cb27-7"><a href="introduction-to-rstudio-and-geoprocessing.html#cb27-7" tabindex="-1"></a><span class="co"># and 40% for the borders (border.alpha)</span></span></code></pre></div>
 <p><img src="images/general/10_transparency.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="adding-another-layer-on-top-of-study-area" class="section level4 hasAnchor" number="2.3.3.2">
 <h4><span class="header-section-number">2.3.3.2</span> Adding another layer on top of study area<a href="introduction-to-rstudio-and-geoprocessing.html#adding-another-layer-on-top-of-study-area" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Suppose you want to add another layer to show the regions of Ghana for which the districts reside in, you can use another <code>tm_shape()</code> in the code, the coding would be as follows:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-1" tabindex="-1"></a><span class="co"># Adding another layer</span></span>
-<span id="cb29-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-2" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-3" tabindex="-1"></a><span class="fu">tm_shape</span>(Spatial_data) <span class="sc">+</span> </span>
-<span id="cb29-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-4" tabindex="-1"></a>    <span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">border.alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb29-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-5" tabindex="-1"></a>    <span class="fu">tm_shape</span>(regions) <span class="sc">+</span></span>
-<span id="cb29-6"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-6" tabindex="-1"></a>    <span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">border.alpha =</span> <span class="dv">1</span>, <span class="at">border.col =</span> <span class="st">&quot;black&quot;</span>)</span>
-<span id="cb29-7"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-7" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-8" tabindex="-1"></a><span class="co"># The background of the added layer has been rendered to full</span></span>
-<span id="cb29-9"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-9" tabindex="-1"></a><span class="co"># transparency with alpha set to 0 and borders are fully solid with</span></span>
-<span id="cb29-10"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-10" tabindex="-1"></a><span class="co"># border.alpha set to 1 and border.col (colour) set to “black” to appear</span></span>
-<span id="cb29-11"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-11" tabindex="-1"></a><span class="co"># pronounced.</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-1" tabindex="-1"></a><span class="co"># Adding another layer</span></span>
+<span id="cb28-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-2" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-3" tabindex="-1"></a><span class="fu">tm_shape</span>(Spatial_data) <span class="sc">+</span> </span>
+<span id="cb28-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-4" tabindex="-1"></a>    <span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>, <span class="at">border.alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-5" tabindex="-1"></a>    <span class="fu">tm_shape</span>(regions) <span class="sc">+</span></span>
+<span id="cb28-6"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-6" tabindex="-1"></a>    <span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">border.alpha =</span> <span class="dv">1</span>, <span class="at">border.col =</span> <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb28-7"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-7" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-8" tabindex="-1"></a><span class="co"># The background of the added layer has been rendered to full</span></span>
+<span id="cb28-9"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-9" tabindex="-1"></a><span class="co"># transparency with alpha set to 0 and borders are fully solid with</span></span>
+<span id="cb28-10"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-10" tabindex="-1"></a><span class="co"># border.alpha set to 1 and border.col (colour) set to “black” to appear</span></span>
+<span id="cb28-11"><a href="introduction-to-rstudio-and-geoprocessing.html#cb28-11" tabindex="-1"></a><span class="co"># pronounced.</span></span></code></pre></div>
 <p><img src="images/general/11_addedlayer.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="full-visualising-of-data-in-the-maps" class="section level4 hasAnchor" number="2.3.3.3">
 <h4><span class="header-section-number">2.3.3.3</span> Full visualising of data in the maps<a href="introduction-to-rstudio-and-geoprocessing.html#full-visualising-of-data-in-the-maps" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Suppose you want to visual the spatial data in those postcodes, we can use the <code>tm_fill()</code> function. Let us visual the <code>IMD_Decile</code> column which has <strong>DISCRETE</strong> (or CATEGORICAL) values classed from 1 to 10 to signify areas that are deprived (with 1 being the poorest) and those that are wealthier (with 10 being the least deprived).</p>
+<p>Suppose you want to visualise the spatial data for the flood burden, we can use the <code>tm_fill()</code> function. Let us visual the <code>FLOOD_PRONE_PREV</code> column which has <strong>CONTINUOUS</strong> values classed from 0 to 1 to signify areas that are affected (with 1 being the highest burden and 0 as vice versa).</p>
 <p>The coding would be as follows:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-1" tabindex="-1"></a><span class="co"># Generate map IMD_Deciles</span></span>
-<span id="cb30-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-2" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-3" tabindex="-1"></a><span class="fu">tm_shape</span>(Spatial_data) <span class="sc">+</span> </span>
-<span id="cb30-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-4" tabindex="-1"></a><span class="fu">tm_fill</span>(<span class="st">&quot;IMD_Decile&quot;</span>, <span class="at">style =</span> <span class="st">&quot;cat&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Deprivation (Deciles)&quot;</span>, </span>
-<span id="cb30-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-5" tabindex="-1"></a>        <span class="at">palette =</span> <span class="st">&quot;RdYlGn&quot;</span>) <span class="sc">+</span></span>
-<span id="cb30-6"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-6" tabindex="-1"></a><span class="fu">tm_shape</span>(london_borough_shapefile) <span class="sc">+</span> </span>
-<span id="cb30-7"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-7" tabindex="-1"></a><span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">border.alpha =</span> <span class="dv">1</span>, <span class="at">border.col =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb30-8"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-8" tabindex="-1"></a><span class="fu">tm_scale_bar</span>(<span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;left&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb30-9"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-9" tabindex="-1"></a><span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb30-10"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-10" tabindex="-1"></a><span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>, <span class="at">legend.title.size =</span> <span class="fl">0.8</span>,  </span>
-<span id="cb30-11"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-11" tabindex="-1"></a>          <span class="at">legend.text.size =</span> <span class="fl">0.7</span>, </span>
-<span id="cb30-12"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-12" tabindex="-1"></a>          <span class="at">legend.title.fontface =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-1" tabindex="-1"></a><span class="co"># Generate map flood areas</span></span>
+<span id="cb29-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-2" tabindex="-1"></a><span class="fu">tm_shape</span>(Spatial_data) <span class="sc">+</span> </span>
+<span id="cb29-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-3" tabindex="-1"></a>    <span class="fu">tm_fill</span>(<span class="st">&quot;FLOOD_PRONE_PREV&quot;</span>, <span class="at">style =</span> <span class="st">&quot;cont&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Flood prone areas (%)&quot;</span>, <span class="at">palette =</span> <span class="st">&quot;-RdYlGn&quot;</span>) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-4" tabindex="-1"></a>    <span class="fu">tm_shape</span>(districts) <span class="sc">+</span> </span>
+<span id="cb29-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-5" tabindex="-1"></a>    <span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">border.alpha =</span> <span class="dv">1</span>, <span class="at">border.col =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb29-6"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-6" tabindex="-1"></a>    <span class="fu">tm_scale_bar</span>(<span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb29-7"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-7" tabindex="-1"></a>    <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb29-8"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-8" tabindex="-1"></a>    <span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>, <span class="at">legend.title.size =</span> <span class="fl">0.8</span>,  </span>
+<span id="cb29-9"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-9" tabindex="-1"></a>                        <span class="at">legend.text.size =</span> <span class="fl">0.7</span>, </span>
+<span id="cb29-10"><a href="introduction-to-rstudio-and-geoprocessing.html#cb29-10" tabindex="-1"></a>                        <span class="at">legend.title.fontface =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p>In the <code>tm_fill()</code>, we insert the variable of interest we want to visual. The <code>style</code> argument tells RStudio how to break the values into intervals for the legend and colour scheme (there are many e.g., <code>“fixed”</code>, <code>“cont”</code>, <code>“pretty”</code> and <code>“cat”</code> etc.,). We used the <code>“cat”</code> in the <code>style</code> argument because the <code>IMD_Decile</code> variable is categorical.</p>
 <p>The <code>title</code> argument applies it to the legend only (not the plot itself!). The <code>palette</code> argument controls the colour scheme of the legend. In this example, we used a spectral type of colour i.e., <code>“RdYlGn”</code> that starts from Red (to show intense poverty) to Yellow (to signify normal) and to Green (to show intense levels of being rich).</p>
 <p><strong>Geography 101</strong> – when creating a map, it is always best to add the North compass and scale bar. This is done with the <code>tm_compass()</code> and <code>tm_scale_bar()</code> functions. The <code>tm_layout()</code> allows you to make further customisations to the map such as placing the legends outside the plot region and modifying the text size etc. You can experiment with them by checking the help menu – just type: <code>?tm_layout()</code> in the console.</p>
-<p><img src="images/general/Image9_finalmap.png" width="60%" style="display: block; margin: auto;" /></p>
-<p>This concludes this computer session.</p>
+<p><img src="images/general/12_finalmap.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Full map that is informative with details of the regional names would look something like:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-1" tabindex="-1"></a><span class="co"># final map for flood areas</span></span>
+<span id="cb30-2"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-2" tabindex="-1"></a><span class="fu">tm_shape</span>(Spatial_data) <span class="sc">+</span> </span>
+<span id="cb30-3"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-3" tabindex="-1"></a>    <span class="fu">tm_fill</span>(<span class="st">&quot;FLOOD_PRONE_PREV&quot;</span>, <span class="at">style =</span> <span class="st">&quot;cont&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Flood prone areas (%)&quot;</span>, <span class="at">palette =</span> <span class="st">&quot;-RdYlGn&quot;</span>) <span class="sc">+</span></span>
+<span id="cb30-4"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-4" tabindex="-1"></a>    <span class="fu">tm_shape</span>(districts) <span class="sc">+</span> <span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">border.alpha =</span> <span class="dv">1</span>, <span class="at">border.col =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span></span>
+<span id="cb30-5"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-5" tabindex="-1"></a>    <span class="fu">tm_shape</span>(regions) <span class="sc">+</span> <span class="fu">tm_polygons</span>(<span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">border.col =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> <span class="fu">tm_text</span>(<span class="st">&quot;NAME_1&quot;</span>, <span class="at">size =</span> <span class="st">&quot;AREA&quot;</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb30-6"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-6" tabindex="-1"></a>    <span class="fu">tm_scale_bar</span>(<span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;bottom&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-7" tabindex="-1"></a>    <span class="fu">tm_compass</span>(<span class="at">type =</span> <span class="st">&quot;arrow&quot;</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-8" tabindex="-1"></a>    <span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>, <span class="at">legend.title.size =</span> <span class="fl">0.8</span>,  </span>
+<span id="cb30-9"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-9" tabindex="-1"></a>                        <span class="at">legend.text.size =</span> <span class="fl">0.7</span>, </span>
+<span id="cb30-10"><a href="introduction-to-rstudio-and-geoprocessing.html#cb30-10" tabindex="-1"></a>                        <span class="at">legend.title.fontface =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="images/general/13_quizmap.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>This concludes this session.</p>
 
 </div>
 </div>
