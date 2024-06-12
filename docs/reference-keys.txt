@@ -24,3 +24,17 @@ mapping-with-tmap-functions-in-rstudio
 visualising-the-outlines-of-study-area
 adding-another-layer-on-top-of-study-area
 full-visualising-of-data-in-the-maps
+introduction-to-geoprocessing-of-gridded-data-in-rstudio
+introduction-1
+learning-outcomes-1
+datasets-setting-up-the-work-directory
+loading-and-installing-packages
+loading-datasets
+mapping-overlays-based-on-decisions
+classification-of-raster
+waterways-and-waterbodies
+elevation
+slope
+built-settlement
+rainfall
+finding-areas-that-flood-prone-based-on-reclassifed-rasters-through-averaging
